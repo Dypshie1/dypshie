@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emutube</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="images/png" href="images/youtube-icon.png">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 240px;
+            transition: width 0.3s ease;
+            background-color: #f4f4f4;
+            height: 175vh;
+            overflow: hidden;
+        }
+
+        .sidebar.collapsed {
+            width: 80px;
+        }
+
+        .sidebar__categories {
+            padding: 10px;
+        }
+
+        .sidebar__category {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .sidebar__category i {
+            margin-right: 16px;
+            font-size: 24px;
+        }
+
+        .sidebar.collapsed .sidebar__category span {
+            display: none;
+        }
+
+        .header {
+            height: 60px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .mainBody {
+            margin-top: 60px;
+            margin-left: 240px;
+            flex: 1;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .mainBody.collapsed {
+            margin-left: 80px;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .video {
+            margin-bottom: 20px;
+        }
+
+        .video__thumbnail img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .video__details {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .title h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header__left">
+            <i id="menu-toggle" class="material-icons menu-toggle">menu</i>
+            <a href="index.html">
+                <img src="images/EMUTUBE.png" alt="Emutube Logo">
+            </a>
+        </div>
+        <div class="header__search">
+            <form action="">
+                <input type="text" placeholder="Search">
+                <button><i class="material-icons">search</i></button>
+            </form>
+        </div>
+        <div class="header__icons">            
+            <a href="upload.html"><i class="material-icons">videocam</i></a>
+            <i class="material-icons">apps</i>
+            <i class="material-icons display-this">notifications</i>
+            <a href="channel.html"><i id="drop-down" class="material-icons display-this">account_circle</i></a>
+        </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar Content -->
+    </div>
+    <div class="mainBody">
+        <!-- Video Content -->
+    </div>
+</body>
+</html>

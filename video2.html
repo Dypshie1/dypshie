@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emutube</title>
+    <link rel="icon" type="images/png" href="images/youtube-icon.png">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/single.css" type="text/css">
+
+    <!-- CDNS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+   <style>
+    /* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Başlangıçta gizlenmiş */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f400;
+    color: white;
+    overflow-y: hidden;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0; /* Açık duruma gelir */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Overlay (Sidebar açıldığında) */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+</style>
+</head>
+
+<body>    
+
+    <div class="header">
+        <!-- Header menu Start -->
+
+        <div class="header__left">
+            <i id="menu" class="material-icons">menu</i>
+            <a href="index.html">
+            <img src="images/EMUTUBE.png" alt="">
+            </a>
+        </div>
+        <!-- Header menu end -->
+
+        <!-- Header seach Start -->
+
+        <div class="header__search">
+            <form action="">
+                <input type="text" placeholder="Search">
+                <button><i class="material-icons">search</i></button>
+            </form>
+        </div>
+        <!-- Header search Start -->
+        
+        <!-- Header Icons Start -->
+        <div class="header__icons">
+            <a href="upload.html"><i class="material-icons ">videocam</i></a>
+            <i class="material-icons">apps</i>
+            <i class="material-icons display-this">notifications</i>
+            <a href="channel.html"><i id="drop-down" class="material-icons display-this">account_circle</i></a>
+        </div>
+        <!-- Header Icons Ends -->
+
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar__categories">
+            <a href="#">                
+                </div>                
+            </a>
+            <a href="#">
+                <div class="sidebar__category">                   
+                </div>
+            </a>
+            <a href="index.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="trending.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">local_fire_department</i>
+                    <span>Trending</span>
+                </div>
+            </a>
+            <a href="subs.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">subscriptions</i>
+                    <span>Subscriptions</span>
+                </div>
+            </a>
+            <hr>
+            <a href="library.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">library_add_check</i>
+                    <span>Library</span>
+                </div>
+            </a>
+            <a href="history.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">history</i>
+                    <span>History</span>
+                </div>
+            </a>
+            <a href="channel-videos.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">play_arrow</i>
+                    <span>Your Videos</span>
+                </div>
+            </a>
+            <a href="watchlater.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">watch_later</i>
+                    <span>Watch Later</span>
+                </div>
+            </a>
+            <a  href="liked.html">
+                <div class="sidebar__category">
+                    <i class="material-icons">thumb_up</i>
+                    <span>Liked Videos</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <main class="single_pages">
+        <section class="video_items flex">
+            <div class="left">
+                <div class="left_content">
+                    <video controls>
+                        <source src="video/video2.mp4" type="video/mp4" poster="images/arka.jpeg">
+                    </video>
+
+                    <div class="tag">
+                        <label for="" class="tags">#html #frontend #css</label>
+                        <p>Youtube using HTML, CSSS and JS</p>
+                    </div>
+
+                    <div class="view flex2 border_bottom">
+                        <div class="view-text">
+                            <span>123, 234 Views</span>
+                        </div>
+
+                        <div class="flex">
+                            <div class="icon">
+                                <a href=""><i class="fa fa-thumbs-up"></i></a>
+                                <label for="">5k</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-thumbs-down"></i></a>
+                                <label for="">Dislike</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-share"></i></a>
+                                <label for="">Share</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-scissors"></i></a>
+                                <label for="">Clip</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-bookmark"></i></a>
+                                <label for="">Save</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-thumbs-up"></i></a>
+                                <label for="">5k</label>
+                            </div>
+
+                            <div class="icon">
+                                <a href=""><i class="fa fa-ellipsis"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details flex border_bottom">
+                        <div class="img">
+                            <img src="images/logo.png" alt="">
+                        </div>
+                        <div class="heading">
+                            <h4>Zeynep Pelin <small><i class="fa fa-check-circle"></i></small> </h4>
+                            <span>2.4K Subscribers</span>
+
+                            <h5>I am making a statement here about the video content.</h5>
+                            <span> <i class="fa fa-caret-down"></i> show more</span>
+                        </div>
+                        <div>
+                            <a href="" class="subscribe-btn">Subscribe</a>
+                        </div>
+                    </div>
+
+                    <hr class="mid-hr">
+
+                    <div class="comment">
+                        <div class="comment-heading flex">
+                            <h4>2 Comments</h4>
+                            <h4><i class="fa fa-list-ul"></i> <label>Sort By</label> </h4>
+                        </div>
+                    </div>
+
+                    <div class="details comment_self flex">
+                        <div class="img">
+                            <img src="images/logo1.jpeg" alt="">
+                        </div>
+                        <div class="heading">
+                            <input type="text" placeholder="Add a comment...">
+                        </div>
+                    </div>
+
+                    <div class="details_Comment">
+                        <div class="details flex">
+                            <div class="img">
+                                <img  src="images/logo2.jpeg" alt="">
+                            </div>
+                            <div class="heading">
+                                <h4>Ayşe Ayşe <span>17 Months ago</span></h4>
+                                <p> Very nice video !</p>
+                                <div class="comment-like flex">
+                                    <div class="icon">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <label for="">5</label>
+                                    </div>
+
+                                    <div class="icon">
+                                        <i class="fa fa-thumbs-down"></i>
+                                        <label for="">Dislike</label>
+                                    </div>
+
+                                    <div class="icon">
+                                        <label for=""><a href="">Reply</a></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="replay">
+                        <label for="" class="tags"><i class="fa fa-caret-up"></i>Hide Reply</label>
+                        <div class="replay-details flex">
+                            <div class="img">
+                                <img src="images/logo2.jpeg"  alt="">
+                            </div>
+                            <div class="text">
+                                <h4><label for=""></label> <span>16 Months ago</span> </h4>
+                                <p>Thank you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="right_content">
+                    <button class="chat">Show Chat Reply</button>
+                    <div class="tags">
+                        <label for="" class="tags-bg">All</label>
+                        <label for="" class="tags-bg">Web Design</label>
+                        <label for="" class="tags-bg">Frontend</label>
+                        <label for="" class="tags-bg">HTML</label>
+                    </div>
+
+                    <div class="video_items vide_sidebar flex">
+                        <a href="">
+                            <img src="images/arka.jpeg" alt="">
+                        </a>
+                        <div class="details">
+                            <p>Youtube using HTML, CSS and JS</p>
+                            <span>Zeynep Pelin <i class="fa fa-check-circle"></i></span>
+                            <span>203K Views . 1 Week Ago </span>
+                        </div>
+                    </div>
+
+                    <div class="video_items vide_sidebar flex">
+                        <a href="">
+                            <img src="images/arka1.jpeg" alt="">
+                        </a>
+                        <div class="details">
+                            <p>Youtube using HTML, CSS and JS</p>
+                            <span>Zeynep Pelin <i class="fa fa-check-circle"></i></span>
+                            <span>203K Views . 1 Week Ago </span>
+                        </div>
+                    </div>
+
+                    <div class="video_items vide_sidebar flex">
+                        <a href="">
+                            <img src="images/arka2.jpeg" alt="">
+                        </a>
+                        <div class="details">
+                            <p>Youtube using HTML, CSS and JS</p>
+                            <span>Zeynep Pelin <i class="fa fa-check-circle"></i></span>
+                            <span>203K Views . 1 Week Ago </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+        </section>
+    </main>
+    
+
+<script src="js/main.js"></script>
+</body>
+</html>
